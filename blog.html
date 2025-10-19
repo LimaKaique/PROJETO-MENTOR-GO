@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Go - Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">Mentor Go</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="investimentos.html">Investimentos</a>
+        <a href="blog.html">Blog</a>
+        <button class="btn-chat">Fale com Sabius</button>
+    </nav>
+</header>
+
+<section class="page-content">
+    <h1>Blog</h1>
+    <p>Artigos e novidades sobre o mercado financeiro e investimentos.</p>
+
+    <div class="blog-list">
+        <article class="blog-post">
+            <div class="blog-image">[Imagem]</div>
+            <h2>Como começar a investir</h2>
+            <p>Um guia passo a passo para iniciantes no mundo dos investimentos.</p>
+        </article>
+        <article class="blog-post">
+            <div class="blog-image">[Imagem]</div>
+            <h2>Dicas de diversificação</h2>
+            <p>Saiba como distribuir seus investimentos para reduzir riscos.</p>
+        </article>
+        <article class="blog-post">
+            <div class="blog-image">[Imagem]</div>
+            <h2>Criptomoedas em alta</h2>
+            <p>O que considerar antes de investir em ativos digitais.</p>
+        </article>
+    </div>
+</section>
+
+<!-- Chat Flutuante -->
+<div class="chat-widget" id="chatWidget">
+    <div class="chat-header" id="chatHeader">
+        <span>Sabius</span>
+        <button id="closeChat">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="message bot">Quer ler algo específico sobre investimentos?</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+        <button id="sendChat">Enviar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

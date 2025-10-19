@@ -1,31 +1,29 @@
 from flask import Flask, request, jsonify
+from transformers import pipeline, Conversation
 from flask_cors import CORS
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 app = Flask(__name__)
-CORS(app)  # Habilita CORS
+CORS(app)
 
-# Modelo Hugging Face
-model_name = "microsoft/DialoGPT-small"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
-chatbot = pipeline("text-generation", model=model, tokenizer=tokenizer)
+chatbot = pipeline("text-generation", model="facebook/blenderbot-400M-distill")  # melhor para chat multi-turno
+conversation_history = Conversation()
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    data = request.json
-    user_input = data.get("message", "")
-    if not user_input:
-        return jsonify({"error": "Mensagem vazia"}), 400
+    try:
+        data = request.get_json()
+        user_msg = data.get("message", "")
+        if not user_msg:
+            return jsonify({"error": "Mensagem vazia"}), 400
 
-    response = chatbot(user_input, max_length=50, do_sample=True, top_k=50)
-    bot_reply = response[0]["generated_text"]
-    return jsonify({"reply": bot_reply})
+        conversation_history.add_user_input(user_msg)
+        response = chatbot(conversation_history)
+        bot_reply = response[0]["generated_text"]
 
-# GET de teste (navegador)
-@app.route("/chat", methods=["GET"])
-def chat_test():
-    return "Rota /chat ativa! Use POST para conversar."
+        return jsonify({"reply": bot_reply})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

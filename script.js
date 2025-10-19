@@ -1,103 +1,81 @@
-// script.js
+// === Conversas pré-moldadas ===
+const conversations = [
+    { "pergunta":"oi", "resposta":["Oi! Eu sou o Sabius, seu assistente de investimentos. Bora aprender a investir?","Oi! Tudo bem? Quer dicas de investimento?"] },
+    { "pergunta":"olá", "resposta":["Olá! Que bom te ver por aqui. Quer dicas de investimento?","Oi oi! Preparado pra melhorar sua inteligência financeira?"] },
+    { "pergunta":"ações", "resposta":["Ótimo! Ações são ideais para investimento a longo prazo. Quer ver dicas de diversificação?","Investir em ações pode ser lucrativo, mas exige estudo."] },
+    { "pergunta":"fundos", "resposta":["Fundos são uma boa forma de investir sem precisar escolher ações individualmente.","Existem fundos de renda fixa, multimercado e imobiliários. Quer detalhes?"] },
+    { "pergunta":"renda fixa", "resposta":["Renda fixa é segura e indicada para quem quer preservar capital.","CDB, Tesouro Direto, LCI/LCA são exemplos de renda fixa."] },
+    { "pergunta":"curso", "resposta":["Temos cursos básicos, intermediários e avançados. Qual nível você quer?","Quer aprender desde o zero ou já tem experiência?"] },
+    { "pergunta":"blog", "resposta":["No blog você encontra dicas, erros comuns e estratégias de investimento.","O blog está cheio de conteúdos sobre finanças e investimentos."] },
+    { "pergunta":"default", "resposta":["Desculpe, não entendi. Pode reformular sua pergunta sobre investimentos?","Não entendi, pode perguntar de outra forma sobre investimentos?"] }
+];
 
-// Cria o container do chat no canto da tela
-let chatContainer = document.createElement("div");
-chatContainer.classList.add("chat-container");
-document.body.appendChild(chatContainer);
+// === Função adicionar mensagem ao chat ===
+function appendMessage(msg, sender) {
+    const chatBody = document.getElementById("chatBody");
+    const msgEl = document.createElement("div");
+    msgEl.classList.add("message", sender);
+    msgEl.textContent = msg;
+    chatBody.appendChild(msgEl);
+    chatBody.scrollTop = chatBody.scrollHeight;
+}
 
-// Cria input e botão dentro do chat
-let chatInput = document.createElement("input");
-chatInput.type = "text";
-chatInput.placeholder = "Escreva algo...";
-chatInput.classList.add("chat-input");
-
-let sendBtn = document.createElement("button");
-sendBtn.textContent = "Enviar";
-sendBtn.classList.add("chat-send-btn");
-
-let chatFooter = document.createElement("div");
-chatFooter.classList.add("chat-footer");
-chatFooter.appendChild(chatInput);
-chatFooter.appendChild(sendBtn);
-
-chatContainer.appendChild(chatFooter);
-
-// Função para adicionar mensagem no chat
-function adicionarMensagem(texto, tipo="user") {
-    const msg = document.createElement("div");
-    msg.textContent = texto;
-    msg.style.padding = "8px 12px";
-    msg.style.borderRadius = "12px";
-    msg.style.maxWidth = "80%";
-    msg.style.wordWrap = "break-word";
-
-    if(tipo === "user") {
-        msg.style.background = "#56C596";
-        msg.style.color = "#000";
-        msg.style.alignSelf = "flex-end";
-    } else {
-        msg.style.background = "#fff";
-        msg.style.color = "#000";
-        msg.style.alignSelf = "flex-start";
+// === Função pegar resposta do bot ===
+function getBotReply(userMsg) {
+    const msg = userMsg.toLowerCase();
+    for (const conv of conversations) {
+        if (msg.includes(conv.pergunta)) {
+            const responses = conv.resposta;
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
     }
-
-    chatContainer.insertBefore(msg, chatFooter);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
+    const defaultConv = conversations.find(c => c.pergunta === "default");
+    return defaultConv.resposta[Math.floor(Math.random() * defaultConv.resposta.length)];
 }
 
-// Função para adicionar loader
-function adicionarLoader() {
-    const loader = document.createElement("div");
-    loader.textContent = "Sabius está pensando...";
-    loader.style.fontStyle = "italic";
-    loader.style.color = "#eee";
-    loader.style.alignSelf = "flex-start";
-    chatContainer.insertBefore(loader, chatFooter);
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-    return loader;
+// === Enviar mensagem ===
+function sendMessage() {
+    const input = document.getElementById("chatInput");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    appendMessage(msg, "user");
+    input.value = "";
+
+    setTimeout(() => {
+        const botReply = getBotReply(msg);
+        appendMessage(botReply, "bot");
+    }, 500);
 }
 
-// Função para enviar mensagem ao servidor
-async function enviarMensagem() {
-    const userInput = chatInput.value.trim();
-    if (!userInput) return;
-
-    adicionarMensagem(userInput, "user");
-    chatInput.value = "";
-
-    const loader = adicionarLoader();
-
-    try {
-        const response = await fetch("http://localhost:5000/chat", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userInput })
-        });
-        const data = await response.json();
-        loader.remove();
-
-        if(data.reply) adicionarMensagem(data.reply, "bot");
-        else if(data.error) adicionarMensagem("Erro: "+data.error, "bot");
-    } catch(err) {
-        loader.remove();
-        adicionarMensagem("Erro ao se conectar com o Sabius.", "bot");
-        console.error(err);
-    }
-}
-
-// Evento de clique no botão enviar
-sendBtn.addEventListener("click", enviarMensagem);
-
-// Enviar mensagem ao pressionar Enter
-chatInput.addEventListener("keypress", (e) => {
-    if(e.key === "Enter") enviarMensagem();
-});
-
-// Conecta o botão principal do site ao chat
+// === Inicialização ===
 document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.querySelector(".btn-chat");
-    if(btn) btn.addEventListener("click", () => {
-        chatContainer.style.display = "flex"; // Mostra o chat
-        chatInput.focus();
+    const sendBtn = document.getElementById("sendChat");
+    const chatInput = document.getElementById("chatInput");
+    const chatWidget = document.getElementById("chatWidget");
+    const chatToggle = document.getElementById("chatHeader");
+    const closeChat = document.getElementById("closeChat");
+    const chatBtn = document.querySelector(".btn-chat");
+
+    sendBtn.addEventListener("click", sendMessage);
+
+    chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage();
     });
+
+    // Abrir / fechar chat
+    chatToggle.addEventListener("click", () => {
+        chatWidget.classList.toggle("minimized");
+    });
+
+    closeChat.addEventListener("click", () => {
+        chatWidget.style.display = "none";
+    });
+
+    if(chatBtn){
+        chatBtn.addEventListener("click", () => {
+            chatWidget.style.display = "flex";
+            chatWidget.classList.remove("minimized");
+        });
+    }
 });

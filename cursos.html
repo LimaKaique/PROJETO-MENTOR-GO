@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Go - Cursos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">Mentor Go</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="investimentos.html">Investimentos</a>
+        <a href="blog.html">Blog</a>
+        <button class="btn-chat">Fale com Sabius</button>
+    </nav>
+</header>
+
+<section class="page-content">
+    <h1>Cursos</h1>
+    <p>Aprenda a investir com nossos cursos estruturados.</p>
+
+    <div class="courses-list">
+        <article class="course">
+            <div class="course-image">[Imagem]</div>
+            <h2>Básico</h2>
+            <p>Introdução ao mundo dos investimentos, conceitos e estratégias iniciais.</p>
+        </article>
+        <article class="course">
+            <div class="course-image">[Imagem]</div>
+            <h2>Intermediário</h2>
+            <p>Expande seus conhecimentos com tipos de investimentos e análise de risco.</p>
+        </article>
+        <article class="course">
+            <div class="course-image">[Imagem]</div>
+            <h2>Avançado</h2>
+            <p>Para investidores experientes que desejam maximizar seus resultados.</p>
+        </article>
+    </div>
+</section>
+
+<!-- Chat Flutuante -->
+<div class="chat-widget" id="chatWidget">
+    <div class="chat-header" id="chatHeader">
+        <span>Sabius</span>
+        <button id="closeChat">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="message bot">Quer saber qual curso combina mais com você?</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+        <button id="sendChat">Enviar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

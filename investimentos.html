@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Go - Investimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="logo">Mentor Go</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="investimentos.html">Investimentos</a>
+        <a href="blog.html">Blog</a>
+        <button class="btn-chat">Fale com Sabius</button>
+    </nav>
+</header>
+
+<section class="page-content">
+    <h1>Investimentos</h1>
+    <p>Explore as melhores opções de investimento de acordo com seu perfil.</p>
+
+    <div class="investments-list">
+        <article class="investment">
+            <div class="investment-image">[Imagem]</div>
+            <h2>Ações</h2>
+            <p>Investimentos em empresas com potencial de valorização no longo prazo.</p>
+        </article>
+        <article class="investment">
+            <div class="investment-image">[Imagem]</div>
+            <h2>Fundos Imobiliários</h2>
+            <p>Renda passiva através de imóveis e dividendos mensais.</p>
+        </article>
+        <article class="investment">
+            <div class="investment-image">[Imagem]</div>
+            <h2>Renda Fixa</h2>
+            <p>Opções seguras como CDB, LCI/LCA e Tesouro Direto.</p>
+        </article>
+        <article class="investment">
+            <div class="investment-image">[Imagem]</div>
+            <h2>Criptomoedas</h2>
+            <p>Ativos digitais voláteis, exigem estudo e cautela.</p>
+        </article>
+    </div>
+</section>
+
+<!-- Chat Flutuante -->
+<div class="chat-widget" id="chatWidget">
+    <div class="chat-header" id="chatHeader">
+        <span>Sabius</span>
+        <button id="closeChat">✕</button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="message bot">Quer que eu explique cada tipo de investimento?</div>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+        <button id="sendChat">Enviar</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
