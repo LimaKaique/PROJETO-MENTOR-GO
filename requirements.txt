@@ -1,0 +1,10 @@
+flask
+flask-cors
+transformers
+torch
+ Para rodaar esse código, você pode usar comandos como:
+# Instalar as dependências
+pip install -r requirements.txt 
+# Iniciar o servidor Flask
+python server.py
+
