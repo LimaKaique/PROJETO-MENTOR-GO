@@ -79,3 +79,68 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// === Chat Flutuante ===
+const chatWidget = document.getElementById('chatWidget');
+const openChat = document.getElementById('openChat');
+const closeChat = document.getElementById('closeChat');
+const chatBody = document.getElementById('chatBody');
+const sendChat = document.getElementById('sendChat');
+const chatInput = document.getElementById('chatInput');
+
+openChat.addEventListener('click', () => chatWidget.style.display = 'flex');
+closeChat.addEventListener('click', () => chatWidget.style.display = 'none');
+
+sendChat.addEventListener('click', () => {
+    const msg = chatInput.value.trim();
+    if (msg === '') return;
+
+    const userMsg = document.createElement('div');
+    userMsg.classList.add('message', 'user');
+    userMsg.textContent = msg;
+    chatBody.appendChild(userMsg);
+
+    chatInput.value = '';
+
+    setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.classList.add('message', 'bot');
+        botMsg.textContent = respostaBot(msg);
+        chatBody.appendChild(botMsg);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }, 600);
+});
+
+function respostaBot(msg) {
+    msg = msg.toLowerCase();
+    if (msg.includes('básico')) return "O curso básico é perfeito pra começar a entender investimentos.";
+    if (msg.includes('intermediário')) return "O intermediário aprofunda seus conhecimentos e análise de risco.";
+    if (msg.includes('avançado')) return "O avançado é ideal pra quem quer maximizar resultados!";
+    return "Posso te ajudar a escolher o curso ideal! 😊";
+}
+
+// === Filtro de busca ===
+const searchInput = document.getElementById('searchInput');
+const coursesList = document.getElementById('coursesList');
+const courses = Array.from(coursesList.getElementsByClassName('course'));
+
+searchInput.addEventListener('input', () => {
+    const term = searchInput.value.toLowerCase();
+    courses.forEach(course => {
+        const title = course.querySelector('h2').textContent.toLowerCase();
+        course.style.display = title.includes(term) ? 'block' : 'none';
+    });
+});
+
+// === Animação ao rolar ===
+const fadeElements = document.querySelectorAll('.course, .testimonial');
+
+function checkFade() {
+    const trigger = window.innerHeight * 0.85;
+    fadeElements.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) el.classList.add('visible');
+    });
+}
+
+window.addEventListener('scroll', checkFade);
+window.addEventListener('load', checkFade);

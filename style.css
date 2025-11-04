@@ -266,3 +266,86 @@ header nav .btn-chat:hover {
         flex-direction: column;
     }
 }
+/* Remove o seletor global antigo que distorcia as imagens */
+img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Ajuste para as imagens dos cursos */
+.course-image img {
+  width: 100%;
+  height: 160px;       /* altura fixa, pode ajustar */
+  object-fit: cover;   /* corta o excesso e preenche todo o espaço */
+  border-radius: 8px;
+  display: block;
+}
+/* Espaçamento maior entre os cards */
+.courses-list {
+    gap: 2rem;
+}
+
+/* Campo de busca */
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.7rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+/* Depoimentos */
+.testimonials {
+    background-color: #eaf6f6;
+    padding: 3rem 2rem;
+    border-radius: 10px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.testimonials h2 {
+    color: #205072;
+    margin-bottom: 1.5rem;
+}
+
+.testimonials-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.testimonial {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-width: 300px;
+    transition: transform 0.3s;
+}
+
+.testimonial:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 0.8rem;
+    color: #205072;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Animação ao rolar */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

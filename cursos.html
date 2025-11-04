@@ -11,10 +11,10 @@
     <div class="logo">Mentor Go</div>
     <nav>
         <a href="index.html">Home</a>
-        <a href="cursos.html">Cursos</a>
+        <a href="cursos.html" class="active">Cursos</a>
         <a href="investimentos.html">Investimentos</a>
         <a href="blog.html">Blog</a>
-        <button class="btn-chat">Fale com Sabius</button>
+        <button class="btn-chat" id="openChat">Fale com Sabius</button>
     </nav>
 </header>
 
@@ -22,22 +22,54 @@
     <h1>Cursos</h1>
     <p>Aprenda a investir com nossos cursos estruturados.</p>
 
-    <div class="courses-list">
+    <!-- Campo de busca -->
+    <input type="text" id="searchInput" placeholder="Pesquisar curso..." class="search-bar">
+
+    <div class="courses-list" id="coursesList">
         <article class="course">
-            <div class="course-image">[Imagem]</div>
+            <div class="course-image"><img src="/imagens/Curso Básico - 841x150.jpg" alt=""></div>
             <h2>Básico</h2>
             <p>Introdução ao mundo dos investimentos, conceitos e estratégias iniciais.</p>
         </article>
         <article class="course">
-            <div class="course-image">[Imagem]</div>
+            <div class="course-image"><img src="/imagens/Curso Intermediário - 841x150.jpg" alt=""></div>
             <h2>Intermediário</h2>
             <p>Expande seus conhecimentos com tipos de investimentos e análise de risco.</p>
         </article>
         <article class="course">
-            <div class="course-image">[Imagem]</div>
+            <div class="course-image"><img src="/imagens/Curso Avançado - 841x150.jpg" alt=""></div>
             <h2>Avançado</h2>
             <p>Para investidores experientes que desejam maximizar seus resultados.</p>
         </article>
+        <article class="course">
+            <div class="course-image"><img src="/imagens/Curso Mentoria - 841x150.jpg" alt=""></div>
+            <h2>Mentoria Individual</h2>
+            <p>Aprenda com um mentor dedicado, com foco em seus objetivos financeiros.</p>
+        </article>
+        <article class="course">
+            <div class="course-image"><img src="/imagens/Curso Planejamento - 841x150.jpg" alt=""></div>
+            <h2>Planejamento Financeiro</h2>
+            <p>Construa uma base sólida de finanças pessoais e investimentos de longo prazo.</p>
+        </article>
+    </div>
+</section>
+
+<!-- Seção de Depoimentos -->
+<section class="testimonials">
+    <h2>O que nossos alunos dizem</h2>
+    <div class="testimonials-list">
+        <div class="testimonial">
+            <p>"Os cursos do Mentor Go mudaram totalmente minha visão sobre investimentos!"</p>
+            <span>- Ana Souza</span>
+        </div>
+        <div class="testimonial">
+            <p>"O conteúdo é claro, direto e realmente me ajudou a começar com segurança."</p>
+            <span>- Pedro Lima</span>
+        </div>
+        <div class="testimonial">
+            <p>"Fiz a mentoria e hoje já consigo aplicar estratégias de forma confiante."</p>
+            <span>- Carla Mendes</span>
+        </div>
     </div>
 </section>
 
