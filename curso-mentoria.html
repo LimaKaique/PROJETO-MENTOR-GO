@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Go - Mentoria Individual</title>
+  <link rel="stylesheet" href="styleCursos.css">
+</head>
+<body>
+<header>
+  <div class="logo">Mentor Go</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="investimentos.html">Investimentos</a>
+    <a href="blog.html">Blog</a>
+    <button class="btn-chat" id="openChat">Fale com Sabius</button>
+  </nav>
+</header>
+
+<section class="course-page">
+  <h1>Mentoria Individual</h1>
+  <p class="intro">
+    A mentoria individual é o espaço onde o aprendizado se torna **personalizado**.  
+    Aqui, você recebe **orientação direta** de um mentor experiente, que te ajuda a montar estratégias, organizar seus investimentos e alcançar seus objetivos financeiros com segurança e clareza.
+  </p>
+
+  <div class="module">
+    <h2>Módulo 1 – Autoconhecimento financeiro</h2>
+    <p>
+      Antes de investir, é essencial entender quem você é como investidor.  
+      A mentoria começa com uma análise profunda do seu perfil: hábitos, objetivos, e até suas emoções em relação ao dinheiro.
+    </p>
+    <p>
+      O autoconhecimento é o que diferencia investidores que reagem por impulso daqueles que tomam decisões conscientes.  
+      Com o mentor, você aprende a identificar seus pontos fortes e o que precisa melhorar.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é o primeiro passo antes de começar a investir com confiança?</p>
+      <button class="option">Escolher uma corretora</button>
+      <button class="option correct">Entender seu próprio perfil e comportamento financeiro</button>
+      <button class="option">Investir em criptomoedas</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 2 – Construindo sua estratégia pessoal</h2>
+    <p>
+      Cada pessoa tem um objetivo diferente — e, por isso, **a estratégia ideal também é única**.  
+      Durante a mentoria, você e o mentor montam juntos um plano sob medida, definindo metas de curto, médio e longo prazo.
+    </p>
+    <p>
+      O foco é alinhar suas decisões financeiras com seus sonhos: pode ser conquistar independência financeira, comprar um imóvel ou garantir uma aposentadoria tranquila.
+    </p>
+    <p>
+      O plano é revisado e ajustado ao longo do tempo, garantindo que você evolua e mantenha o foco.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> O que é mais importante ao criar uma estratégia de investimento pessoal?</p>
+      <button class="option">Copiar o que outras pessoas estão fazendo</button>
+      <button class="option correct">Definir metas baseadas na sua realidade e objetivos</button>
+      <button class="option">Investir em tudo que der lucro rápido</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 3 – Acompanhamento e evolução</h2>
+    <p>
+      A mentoria não é um evento único — é um **processo contínuo de aprendizado e evolução**.  
+      Em cada encontro, você revisa seus resultados, tira dúvidas e recebe orientações práticas do mentor.
+    </p>
+    <p>
+      O objetivo é transformar o conhecimento em ação.  
+      O mentor te ajuda a corrigir erros, ajustar rotas e aproveitar oportunidades, sempre respeitando o seu ritmo e nível de experiência.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> O que faz o acompanhamento constante na mentoria ser tão importante?</p>
+      <button class="option correct">Permite ajustar a estratégia e manter o progresso</button>
+      <button class="option">Serve apenas para repetir o conteúdo</button>
+      <button class="option">Aumenta o risco dos investimentos</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 4 – Mentalidade de longo prazo</h2>
+    <p>
+      A verdadeira riqueza vem da **consistência e paciência**.  
+      Investir não é sobre ganhar rápido, mas sim sobre construir algo sólido ao longo do tempo.
+    </p>
+    <p>
+      Na mentoria, você desenvolve a mentalidade de um investidor experiente: alguém que entende o valor de esperar, aprender com os erros e confiar no processo.  
+      O mentor te ajuda a manter a calma mesmo nas oscilações do mercado e a focar no que realmente importa — o seu crescimento contínuo.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é a principal característica de um investidor de sucesso?</p>
+      <button class="option">Buscar resultados imediatos</button>
+      <button class="option">Evitar qualquer tipo de risco</button>
+      <button class="option correct">Ter paciência e consistência ao longo do tempo</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="end-section">
+    <h3>💡 Parabéns por chegar até aqui!</h3>
+    <p>
+      Você concluiu a Mentoria Individual.  
+      Continue praticando, estudando e aplicando o que aprendeu.  
+      Lembre-se: conhecimento sem ação não gera resultado — mas com disciplina e orientação certa, o sucesso é só questão de tempo.
+    </p>
+    <a href="/cursos.html" class="back-button">← Voltar aos Cursos</a>
+  </div>
+</section>
+
+<script>
+  const options = document.querySelectorAll('.option');
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const feedback = option.parentElement.querySelector('.feedback');
+      if (option.classList.contains('correct')) {
+        feedback.textContent = '✅ Resposta correta!';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = '❌ Tente novamente.';
+        feedback.style.color = 'red';
+      }
+    });
+  });
+</script>
+</body>
+</html>

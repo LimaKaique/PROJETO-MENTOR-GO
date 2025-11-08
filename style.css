@@ -94,7 +94,6 @@ header nav .btn-chat:hover {
 .hero-image .image-placeholder {
     width: 300px;
     height: 300px;
-    background-color: #c4c4c4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -178,11 +177,18 @@ header nav .btn-chat:hover {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    display: flex;
+    display: none;
     flex-direction: column;
     overflow: hidden;
     z-index: 10000;
     transition: all 0.3s ease;
+}
+.chat-widget {
+  display: none;
+}
+
+.chat-widget.active {
+  display: flex;
 }
 
 .chat-widget.minimized {
@@ -348,4 +354,290 @@ img {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0);
+}
+/* ======= Página estilo Wikipédia ======= */
+.wiki-page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: "Segoe UI", Roboto, sans-serif;
+  color: #1e1e1e;
+  line-height: 1.8;
+  background-color: #fff;
+}
+
+.wiki-page h1 {
+  font-size: 2.4rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.wiki-page p {
+  font-size: 1.05rem;
+  margin-bottom: 1.2em;
+  text-align: justify;
+}
+
+.wiki-page hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 25px 0;
+}
+
+/* ======= Estrutura das seções ======= */
+.wiki-section {
+  margin-bottom: 40px;
+}
+
+.wiki-section h2 {
+  font-size: 1.7rem;
+  color: #0044aa;
+  border-left: 4px solid #0044aa;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+/* ======= Layout de texto + imagem ======= */
+.wiki-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.wiki-text {
+  flex: 2;
+}
+
+.wiki-image {
+  flex: 1;
+  text-align: center;
+}
+
+.wiki-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-image figcaption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+/* ======= Responsivo ======= */
+@media (max-width: 768px) {
+  .wiki-content {
+    flex-direction: column;
+  }
+
+  .wiki-image {
+    margin-top: 15px;
+  }
+
+  .wiki-section h2 {
+    font-size: 1.4rem;
+  }
+}
+/* ======= Blog moderno ======= */
+.blog-page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  color: #222;
+  background-color: #fff;
+  line-height: 1.8;
+}
+
+.blog-page h1 {
+  font-size: 2.3rem;
+  border-bottom: 3px solid #0055cc;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+}
+
+.blog-page .intro {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+/* ======= Postagens ======= */
+.blog-post {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.blog-post img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post .post-content {
+  padding: 0 5px;
+}
+
+.blog-post h2 {
+  font-size: 1.6rem;
+  color: #0055cc;
+  margin-bottom: 10px;
+}
+
+.blog-post p {
+  font-size: 1.05rem;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 12px;
+}
+
+/* ======= Efeitos sutis ======= */
+.blog-post:hover img {
+  transform: scale(1.01);
+  transition: transform 0.3s ease;
+}
+
+.blog-post h2:hover {
+  color: #003f99;
+  transition: color 0.3s ease;
+}
+
+/* ======= Responsividade ======= */
+@media (max-width: 768px) {
+  .blog-page {
+    padding: 0 15px;
+  }
+
+  .blog-post h2 {
+    font-size: 1.4rem;
+  }
+
+  .blog-page h1 {
+    font-size: 2rem;
+  }
+}
+/* === Estrutura geral === */
+section {
+    padding: 60px 10%;
+    max-width: 1200px;
+    margin: auto;
+    color: #222;
+    font-family: "Poppins", sans-serif;
+}
+
+/* === Sobre === */
+.about {
+    text-align: center;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 50px 40px;
+    margin-top: 40px;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 20px auto 0;
+}
+
+/* === Destaques === */
+.highlights {
+    margin-top: 60px;
+}
+
+.highlight-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.highlight {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.highlight:hover {
+    transform: translateY(-5px);
+}
+
+.highlight img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* === Últimos artigos === */
+.recent-posts {
+    margin-top: 80px;
+}
+
+.posts-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.post {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.post:hover {
+    transform: translateY(-5px);
+}
+
+.post img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.post h3 {
+    font-size: 1.3rem;
+    margin: 15px;
+    color: #222;
+}
+
+.post p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0 15px 15px;
+}
+
+.read-more {
+    display: inline-block;
+    color: #0077ff;
+    font-weight: 600;
+    text-decoration: none;
+    margin: 0 15px 20px;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* === Responsivo === */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    section {
+        padding: 40px 5%;
+    }
 }

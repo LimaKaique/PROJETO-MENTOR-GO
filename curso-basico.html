@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Go - Blog</title>
+    <link rel="stylesheet" href="styleCursos.css">
+</head>
+<body>
+<header>
+    <div class="logo">Mentor Go</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="investimentos.html">Investimentos</a>
+        <a href="blog.html">Blog</a>
+   <button class="btn-chat" id="openChat">Fale com Sabius</button>
+    </nav>
+</header>
+<section class="course-page">
+  <h1>Curso Básico de Investimentos</h1>
+  <p class="intro">
+    Bem-vindo(a)! Este curso foi criado para quem está começando a entender o mundo dos investimentos.  
+    Aqui, você vai aprender conceitos essenciais que vão te ajudar a tomar decisões financeiras mais seguras e inteligentes.
+  </p>
+
+  <div class="module">
+    <h2>Módulo 1 – Entendendo o que é investir</h2>
+    <p>
+      Investir é o ato de aplicar seu dinheiro em algo que pode gerar retorno no futuro.  
+      Ao invés de deixar o dinheiro parado, você o faz “trabalhar” para você, seja em aplicações financeiras, negócios próprios ou até imóveis.  
+      O investimento pode ter diferentes níveis de risco e retorno, mas o principal objetivo é sempre aumentar seu patrimônio ao longo do tempo.
+    </p>
+    <p>
+      Por exemplo: se você deixa R$1000 na poupança, ele rende pouco. Mas se você investe em um CDB ou Tesouro Direto, o retorno pode ser bem maior — ainda com segurança.  
+      Com o tempo, esses pequenos rendimentos se acumulam e fazem seu dinheiro crescer.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é o principal objetivo de investir?</p>
+      <button class="option">Guardar dinheiro sem retorno</button>
+      <button class="option correct">Fazer o dinheiro crescer ao longo do tempo</button>
+      <button class="option">Evitar gastos</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 2 – Tipos de investimento</h2>
+    <p>
+      Existem dois grandes grupos de investimentos: <strong>renda fixa</strong> e <strong>renda variável</strong>.  
+      A renda fixa é previsível — você sabe quanto vai receber de rendimento e quando.  
+      Exemplos: Tesouro Direto, CDBs, LCIs e LCAs. São ótimos para quem busca segurança e estabilidade.
+    </p>
+    <p>
+      Já a renda variável envolve ativos cujo valor pode mudar diariamente, como ações e fundos imobiliários.  
+      Ela oferece maiores chances de lucro, mas também envolve mais riscos.  
+      Por isso, é importante diversificar, ou seja, não colocar todo o seu dinheiro em um único tipo de investimento.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual opção representa um investimento de renda fixa?</p>
+      <button class="option correct">CDB</button>
+      <button class="option">Ações</button>
+      <button class="option">Fundos imobiliários</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 3 – Começando a investir</h2>
+    <p>
+      Antes de investir, é essencial entender o seu <strong>perfil de investidor</strong>: conservador, moderado ou arrojado.  
+      Isso define quanto risco você está disposto(a) a correr e ajuda a escolher os investimentos certos.
+    </p>
+    <p>
+      Também é importante ter um <strong>objetivo claro</strong>: quer guardar dinheiro para comprar algo, se aposentar com tranquilidade ou apenas fazer o dinheiro render mais que na poupança?  
+      Comece com valores pequenos e vá aprendendo aos poucos.  
+      O mais importante é ter consistência e disciplina.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> O que é importante fazer antes de investir?</p>
+      <button class="option">Investir todo o dinheiro de uma vez</button>
+      <button class="option correct">Definir objetivos e perfil de risco</button>
+      <button class="option">Escolher ações aleatoriamente</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  
+  <div class="end-section">
+    <h3>🎉 Parabéns!</h3>
+    <p>Você concluiu o Curso Básico de Investimentos. Continue aprendendo com nossos cursos intermediário e avançado!</p>
+    <a href="/cursos.html" class="back-button">← Voltar aos Cursos</a>
+  </div>
+</section>
+
+<script>
+  const options = document.querySelectorAll('.option');
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const feedback = option.parentElement.querySelector('.feedback');
+      if (option.classList.contains('correct')) {
+        feedback.textContent = '✅ Resposta correta!';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = '❌ Tente novamente.';
+        feedback.style.color = 'red';
+      }
+    });
+  });
+</script>
+</body>
+</html>

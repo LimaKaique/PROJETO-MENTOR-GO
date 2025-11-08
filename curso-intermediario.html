@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Go - Curso Intermediário</title>
+  <link rel="stylesheet" href="styleCursos.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">Mentor Go</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="investimentos.html">Investimentos</a>
+    <a href="blog.html">Blog</a>
+     <button class="btn-chat" id="openChat">Fale com Sabius</button>
+  </nav>
+</header>
+
+<section class="course-page">
+  <h1>Curso Intermediário de Investimentos</h1>
+  <p class="intro">
+    Parabéns por avançar! 👏 Neste curso, vamos mergulhar mais fundo no mundo dos investimentos, entendendo como analisar riscos, interpretar indicadores e montar uma carteira diversificada.
+  </p>
+
+  <div class="module">
+    <h2>Módulo 1 – Entendendo o risco e o retorno</h2>
+    <p>
+      Todo investimento envolve uma relação entre <strong>risco e retorno</strong>.  
+      Em geral, quanto maior o potencial de ganho, maior também o risco de perda.
+    </p>
+    <p>
+      Por exemplo, investir em ações pode render muito em um bom momento do mercado — mas também pode gerar perdas se o cenário mudar.  
+      Já investimentos de renda fixa, como CDBs e Tesouro Direto, oferecem retornos mais previsíveis e seguros.
+    </p>
+    <p>
+      O segredo é equilibrar esses dois lados: ter parte do dinheiro em investimentos seguros e outra parte em opções com potencial de valorização.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é a relação entre risco e retorno nos investimentos?</p>
+      <button class="option correct">Quanto maior o retorno, maior tende a ser o risco</button>
+      <button class="option">Risco e retorno não têm relação</button>
+      <button class="option">Quanto menor o risco, maior o retorno</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 2 – Diversificação de carteira</h2>
+    <p>
+      Diversificar significa não colocar todos os ovos na mesma cesta.  
+      Isso quer dizer: investir em diferentes tipos de ativos (como ações, renda fixa e fundos imobiliários) para reduzir os riscos.
+    </p>
+    <p>
+      Quando um investimento vai mal, outro pode compensar.  
+      Por exemplo, se a bolsa de valores cair, seus investimentos em renda fixa ainda podem continuar rendendo bem.
+    </p>
+    <p>
+      Uma boa carteira tem equilíbrio: segurança, liquidez e rentabilidade.  
+      O ideal é que você ajuste sua alocação de acordo com seus objetivos e momento de vida.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> O que é diversificação de investimentos?</p>
+      <button class="option">Investir todo o dinheiro em um único ativo</button>
+      <button class="option correct">Distribuir os investimentos entre diferentes tipos de ativos</button>
+      <button class="option">Escolher apenas investimentos de renda variável</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 3 – Analisando investimentos</h2>
+    <p>
+      Agora que você entende o básico, é hora de aprender a analisar seus investimentos.  
+      Existem dois tipos principais de análise: <strong>fundamentalista</strong> e <strong>técnica</strong>.
+    </p>
+    <p>
+      A análise fundamentalista avalia o valor real de uma empresa, considerando lucros, dívidas, crescimento e mercado.  
+      Já a técnica foca em gráficos e tendências de preço, ajudando a identificar bons momentos de compra ou venda.
+    </p>
+    <p>
+      Nenhuma é infalível, mas juntas, elas ajudam o investidor a tomar decisões mais informadas e menos impulsivas.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> O que a análise fundamentalista busca avaliar?</p>
+      <button class="option correct">O valor e a saúde financeira de uma empresa</button>
+      <button class="option">A variação diária do preço das ações</button>
+      <button class="option">As notícias sobre o mercado</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 4 – Erros comuns de investidores</h2>
+    <p>
+      Mesmo investidores experientes cometem erros.  
+      Um dos mais comuns é agir por emoção — comprar quando o mercado está em alta e vender quando está em baixa.  
+      Outro erro é não ter uma estratégia clara ou abandonar o plano por causa de pequenas oscilações.
+    </p>
+    <p>
+      Lembre-se: investir é um processo de longo prazo.  
+      O importante é manter a disciplina e a paciência, sem se deixar levar pelo medo ou pela euforia do momento.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é um erro comum entre investidores?</p>
+      <button class="option correct">Tomar decisões com base em emoções</button>
+      <button class="option">Diversificar a carteira</button>
+      <button class="option">Investir com objetivos claros</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="end-section">
+    <h3>🚀 Parabéns!</h3>
+    <p>Você concluiu o Curso Intermediário de Investimentos! Agora está pronto(a) para seguir para o curso avançado e dominar estratégias profissionais de investimento.</p>
+    <a href="/cursos.html" class="back-button">← Voltar aos Cursos</a>
+  </div>
+</section>
+
+<script>
+  const options = document.querySelectorAll('.option');
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const feedback = option.parentElement.querySelector('.feedback');
+      if (option.classList.contains('correct')) {
+        feedback.textContent = '✅ Resposta correta!';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = '❌ Tente novamente.';
+        feedback.style.color = 'red';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

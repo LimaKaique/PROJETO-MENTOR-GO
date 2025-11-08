@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor Go - Educação Financeira e Mentalidade de Investidor</title>
+  <link rel="stylesheet" href="styleCursos.css">
+</head>
+<body>
+<header>
+  <div class="logo">Mentor Go</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cursos.html">Cursos</a>
+    <a href="investimentos.html">Investimentos</a>
+    <a href="blog.html">Blog</a>
+    <button class="btn-chat" id="openChat">Fale com Sabius</button>
+  </nav>
+</header>
+
+<section class="course-page">
+  <h1>Curso de Educação Financeira e Mentalidade de Investidor</h1>
+  <p class="intro">
+    A **educação financeira** é o alicerce para quem deseja conquistar estabilidade e liberdade econômica.  
+    Neste curso, você aprenderá a mudar sua **mentalidade em relação ao dinheiro**, tomar decisões conscientes e construir hábitos de investidor para o longo prazo.
+  </p>
+
+  <div class="module">
+    <h2>Módulo 1 – Entendendo a relação com o dinheiro</h2>
+    <p>
+      Tudo começa com a forma como você enxerga o dinheiro.  
+      Muitas pessoas associam finanças a medo ou escassez, mas mudar essa percepção é o primeiro passo para crescer financeiramente.
+    </p>
+    <p>
+      Desenvolver uma mentalidade de abundância ajuda a tomar decisões com mais clareza e menos emoção.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> O que é o primeiro passo para desenvolver uma boa relação com o dinheiro?</p>
+      <button class="option correct">Mudar a mentalidade e entender o próprio comportamento financeiro</button>
+      <button class="option">Evitar pensar sobre dinheiro</button>
+      <button class="option">Gastar mais para se motivar</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 2 – Princípios da educação financeira</h2>
+    <p>
+      A educação financeira ensina como administrar, economizar e multiplicar o dinheiro.  
+      Isso inclui criar metas, controlar gastos, investir e se planejar para o futuro.
+    </p>
+    <p>
+      Ter controle sobre suas finanças é o que permite viver com tranquilidade e liberdade.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é o principal objetivo da educação financeira?</p>
+      <button class="option">Ficar rico rapidamente</button>
+      <button class="option correct">Aprender a administrar e planejar o uso do dinheiro</button>
+      <button class="option">Depender de sorte e improviso</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 3 – Comportamento e hábitos do investidor</h2>
+    <p>
+      O sucesso nos investimentos depende mais de comportamento do que de conhecimento técnico.  
+      Manter a calma em tempos de crise e investir com consistência são atitudes que diferenciam os bons investidores.
+    </p>
+    <p>
+      O foco deve ser no longo prazo — quem tem disciplina colhe os melhores resultados.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> O que mais influencia o sucesso de um investidor?</p>
+      <button class="option correct">O comportamento e a disciplina ao investir</button>
+      <button class="option">Tentar adivinhar o mercado</button>
+      <button class="option">Investir apenas quando há euforia</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 4 – Evitando erros e armadilhas financeiras</h2>
+    <p>
+      Muitos investidores iniciantes perdem dinheiro por falta de planejamento e por seguir modismos.  
+      Evite agir por impulso, cair em promessas de lucro rápido ou investir em algo que não entende.
+    </p>
+    <p>
+      A paciência é uma das maiores virtudes no mundo dos investimentos.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é o erro mais comum entre investidores iniciantes?</p>
+      <button class="option">Investir com base em modas e emoções</button>
+      <button class="option correct">Investir sem planejamento e sem entender o investimento</button>
+      <button class="option">Guardar dinheiro em casa</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="module">
+    <h2>Módulo 5 – Pensamento de longo prazo</h2>
+    <p>
+      Grandes investidores constroem riqueza ao longo dos anos, não da noite para o dia.  
+      Manter constância, estudar e reinvestir os ganhos é o que gera crescimento real.
+    </p>
+    <p>
+      O segredo é deixar o tempo e os juros compostos trabalharem a seu favor.
+    </p>
+
+    <div class="quiz">
+      <p><strong>Pergunta:</strong> Qual é a chave para o crescimento financeiro sustentável?</p>
+      <button class="option correct">Investir com constância e foco no longo prazo</button>
+      <button class="option">Buscar lucros imediatos e arriscados</button>
+      <button class="option">Evitar qualquer tipo de investimento</button>
+      <p class="feedback"></p>
+    </div>
+  </div>
+
+  <div class="end-section">
+    <h3>💡 Parabéns!</h3>
+    <p>
+      Você concluiu o Curso de Educação Financeira e Mentalidade de Investidor!  
+      Agora tem a base necessária para tomar decisões conscientes e construir um futuro financeiro sólido.  
+      Continue evoluindo com os outros cursos da <strong>Mentor Go</strong>!
+    </p>
+    <a href="/cursos.html" class="back-button">← Voltar aos Cursos</a>
+  </div>
+</section>
+
+<script>
+  const options = document.querySelectorAll('.option');
+
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+      const feedback = option.parentElement.querySelector('.feedback');
+      if (option.classList.contains('correct')) {
+        feedback.textContent = '✅ Resposta correta!';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = '❌ Tente novamente.';
+        feedback.style.color = 'red';
+      }
+    });
+  });
+</script>
+</body>
+</html>

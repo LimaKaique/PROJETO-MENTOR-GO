@@ -1,122 +1,156 @@
-// === Conversas pré-moldadas ===
-const conversations = [
-    { "pergunta":"oi", "resposta":["Oi! Eu sou o Sabius, seu assistente de investimentos. Bora aprender a investir?","Oi! Tudo bem? Quer dicas de investimento?"] },
-    { "pergunta":"olá", "resposta":["Olá! Que bom te ver por aqui. Quer dicas de investimento?","Oi oi! Preparado pra melhorar sua inteligência financeira?"] },
-    { "pergunta":"ações", "resposta":["Ótimo! Ações são ideais para investimento a longo prazo. Quer ver dicas de diversificação?","Investir em ações pode ser lucrativo, mas exige estudo."] },
-    { "pergunta":"fundos", "resposta":["Fundos são uma boa forma de investir sem precisar escolher ações individualmente.","Existem fundos de renda fixa, multimercado e imobiliários. Quer detalhes?"] },
-    { "pergunta":"renda fixa", "resposta":["Renda fixa é segura e indicada para quem quer preservar capital.","CDB, Tesouro Direto, LCI/LCA são exemplos de renda fixa."] },
-    { "pergunta":"curso", "resposta":["Temos cursos básicos, intermediários e avançados. Qual nível você quer?","Quer aprender desde o zero ou já tem experiência?"] },
-    { "pergunta":"blog", "resposta":["No blog você encontra dicas, erros comuns e estratégias de investimento.","O blog está cheio de conteúdos sobre finanças e investimentos."] },
-    { "pergunta":"default", "resposta":["Desculpe, não entendi. Pode reformular sua pergunta sobre investimentos?","Não entendi, pode perguntar de outra forma sobre investimentos?"] }
-];
-
-// === Função adicionar mensagem ao chat ===
-function appendMessage(msg, sender) {
-    const chatBody = document.getElementById("chatBody");
-    const msgEl = document.createElement("div");
-    msgEl.classList.add("message", sender);
-    msgEl.textContent = msg;
-    chatBody.appendChild(msgEl);
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendChat');
+const closeBtn = document.getElementById('closeChat');
+const chatWidget = document.getElementById('chatWidget');
+const openChatBtn = document.getElementById("openChat");
+// Adiciona uma nova mensagem
+function addMessage(text, sender) {
+    const msg = document.createElement('div');
+    msg.classList.add('message', sender);
+    msg.textContent = text;
+    chatBody.appendChild(msg);
     chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-// === Função pegar resposta do bot ===
-function getBotReply(userMsg) {
-    const msg = userMsg.toLowerCase();
-    for (const conv of conversations) {
-        if (msg.includes(conv.pergunta)) {
-            const responses = conv.resposta;
-            return responses[Math.floor(Math.random() * responses.length)];
-        }
-    }
-    const defaultConv = conversations.find(c => c.pergunta === "default");
-    return defaultConv.resposta[Math.floor(Math.random() * defaultConv.resposta.length)];
+// Respostas automáticas do bot
+function botResponse(input) {
+    const text = input.toLowerCase();if (text.includes("oi") || text.includes("olá") || text.includes("e aí") || text.includes("bom dia") || text.includes("boa tarde") || text.includes("boa noite"))
+    return "Oi! 😊 Seja bem-vindo(a)! Como posso te ajudar hoje?";
+
+if (text.includes("curso") || text.includes("cursos"))
+    return "Temos vários cursos gratuitos sobre finanças, investimentos e desenvolvimento pessoal! Quer que eu te recomende um? 🎓";
+
+if (text.includes("preço") || text.includes("valor") || text.includes("custa") || text.includes("quanto"))
+    return "Boa notícia! 😄 Todos os nossos cursos são totalmente gratuitos.";
+
+if (text.includes("pagamento") || text.includes("pagar") || text.includes("cartão") || text.includes("boleto") || text.includes("pix"))
+    return "Você não precisa pagar nada 💸 Todos os cursos são 100% gratuitos e online!";
+
+if (text.includes("horário") || text.includes("hora") || text.includes("quando") || text.includes("duração"))
+    return "Os cursos são online e com horários flexíveis ⏰ Você pode assistir quando quiser!";
+
+if (text.includes("sim") || text.includes("claro") || text.includes("com certeza") || text.includes("quero"))
+    return "Perfeito! 😄 Me conta qual tema você mais se interessa: investimentos, finanças pessoais ou empreendedorismo?";
+
+if (text.includes("não") || text.includes("nao"))
+    return "Tudo bem! 😉 Se mudar de ideia, estarei por aqui pra te ajudar.";
+
+if (text.includes("mentoria") || text.includes("mentorias"))
+    return "As mentorias são personalizadas e focadas nos seus objetivos 👥 Quer saber mais sobre como participar?";
+
+if (text.includes("investimento") || text.includes("investir") || text.includes("dinheiro"))
+    return "Temos cursos gratuitos sobre investimentos, renda fixa, bolsa de valores e até criptomoedas! 💹 Quer que eu te mostre as opções?";
+
+if (text.includes("ajuda") || text.includes("duvida") || text.includes("dúvida") || text.includes("explica"))
+    return "Claro! 😄 Me diga sobre o que você quer ajuda — posso te explicar passo a passo.";
+
+if (text.includes("certificado") || text.includes("certificação"))
+    return "Sim! 🎓 Todos os cursos oferecem certificado digital gratuito de conclusão.";
+
+if (text.includes("contato") || text.includes("falar com") || text.includes("suporte") || text.includes("atendimento"))
+    return "Você pode entrar em contato com nossa equipe pelo WhatsApp ou e-mail 📱 Quer que eu te envie o link direto?";
+
+if (text.includes("acesso") || text.includes("plataforma") || text.includes("online"))
+    return "Os cursos são 100% online e com acesso vitalício 🔓 Assim você pode estudar quando e onde quiser!";
+
+if (text.includes("professor") || text.includes("instrutor") || text.includes("quem ensina"))
+    return "Todos os cursos são ministrados por especialistas com experiência real no mercado 💼";
+
+if (text.includes("gratuito") || text.includes("de graça") || text.includes("free"))
+    return "Isso mesmo! 😄 Todos os cursos da Mentor Go são gratuitos e abertos ao público.";
+
+if (text.includes("inicio") || text.includes("começar") || text.includes("inscrição") || text.includes("inscrever"))
+    return "Você pode se inscrever de forma gratuita direto pelo nosso site 🧾 Quer que eu te envie o link da página de cursos?";
+
+if (text.includes("reembolso") || text.includes("cancelar") || text.includes("cancelamento"))
+    return "Como os cursos são gratuitos, não há necessidade de reembolso 😉 Você pode entrar e sair quando quiser!";
+
+if (text.includes("tempo") || text.includes("quanto tempo") || text.includes("dura"))
+    return "A duração varia de acordo com o curso — alguns são rápidos e outros mais completos ⏳ Quer saber sobre algum específico?";
+
+if (text.includes("blog"))
+    return "Nosso blog traz dicas e análises sobre o mercado financeiro pra te manter sempre atualizado! 📰";
+
+if (text.includes("obrigado") || text.includes("valeu") || text.includes("agradeço"))
+    return "De nada! 😄 Fico feliz em ajudar. Quer que eu te recomende um curso pra começar agora?";
+
+if (text.includes("iniciante") || text.includes("começando") || text.includes("novo nisso"))
+    return "Sem problema! 🚀 Temos cursos ideais pra quem está começando do zero e quer entender o básico de finanças e investimentos.";
+
+if (text.includes("avançado") || text.includes("experiente") || text.includes("já sei"))
+    return "Legal! 👏 Temos cursos avançados que abordam investimentos, bolsa de valores e estratégias de crescimento financeiro.";
+
+if (text.includes("erro") || text.includes("bug") || text.includes("não funciona") || text.includes("problema"))
+    return "Poxa 😕 Me conta o que aconteceu pra eu tentar te ajudar!";
+
+if (text.includes("link") || text.includes("site") || text.includes("página"))
+    return "Claro! 🌐 Você pode acessar tudo direto pelo site oficial da Mentor Go.";
+
+if (text.includes("email") || text.includes("e-mail"))
+    return "Você pode nos contatar por e-mail em suporte@mentorgo.com 📩";
+
+if (text.includes("whatsapp"))
+    return "Você pode falar com nossa equipe pelo WhatsApp! 📱 Quer que eu envie o número?";
+
+if (text.includes("obrigada") || text.includes("vlw") || text.includes("tmj"))
+    return "Haha 😄 Tamo junto! Sempre bom poder ajudar.";
+
+if (text.includes("curso de criptomoedas") || text.includes("blockchain"))
+    return "O curso de Criptomoedas e Blockchain ensina como funcionam as moedas digitais, segurança e como investir nesse mercado em crescimento. 💰";
+
+if (text.includes("renda fixa") || text.includes("tesouro direto"))
+    return "O curso de Renda Fixa e Tesouro Direto mostra como investir de forma segura e previsível, ideal pra quem quer começar com pouco risco. 📈";
+
+if (text.includes("imoveis") || text.includes("imóvel"))
+    return "O curso de Investimentos em Imóveis ensina como lucrar com imóveis, seja comprando, alugando ou investindo em fundos imobiliários. 🏠";
+
+if (text.includes("educação financeira") || text.includes("mentalidade de investidor"))
+    return "O curso de Educação Financeira e Mentalidade de Investidor ajuda você a organizar suas finanças e pensar como um verdadeiro investidor. 🧠";
+
+if (text.includes("empreendedorismo") || text.includes("liberdade financeira"))
+    return "O curso de Empreendedorismo e Liberdade Financeira mostra como criar oportunidades, montar negócios e conquistar independência financeira. 💼";
+
+if (text.includes("planejamento financeiro"))
+    return "O curso de Planejamento Financeiro ensina como controlar seus gastos, montar uma reserva e alcançar suas metas financeiras. 💡";
+
+if (text.includes("investindo na bolsa"))
+    return "O curso Investindo na Bolsa de Valores te ensina a comprar ações, entender o mercado e investir de forma inteligente. 📊";
+
+if (text.includes("mentoria individual"))
+    return "A Mentoria Individual é um acompanhamento personalizado com um especialista que te orienta em cada passo da sua jornada financeira. 🤝";
+
+return "Hmm... não entendi muito bem 😅 Pode reformular sua pergunta?";
+
 }
 
-// === Enviar mensagem ===
+// Envia mensagem do usuário e gera resposta do bot
 function sendMessage() {
-    const input = document.getElementById("chatInput");
-    const msg = input.value.trim();
-    if (!msg) return;
+    const userText = chatInput.value.trim();
+    if (!userText) return;
 
-    appendMessage(msg, "user");
-    input.value = "";
-
-    setTimeout(() => {
-        const botReply = getBotReply(msg);
-        appendMessage(botReply, "bot");
-    }, 500);
-}
-
-// === Inicialização ===
-document.addEventListener("DOMContentLoaded", () => {
-    const sendBtn = document.getElementById("sendChat");
-    const chatInput = document.getElementById("chatInput");
-    const chatWidget = document.getElementById("chatWidget");
-    const chatToggle = document.getElementById("chatHeader");
-    const closeChat = document.getElementById("closeChat");
-    const chatBtn = document.querySelector(".btn-chat");
-
-    sendBtn.addEventListener("click", sendMessage);
-
-    chatInput.addEventListener("keypress", (e) => {
-        if (e.key === "Enter") sendMessage();
-    });
-
-    // Abrir / fechar chat
-    chatToggle.addEventListener("click", () => {
-        chatWidget.classList.toggle("minimized");
-    });
-
-    closeChat.addEventListener("click", () => {
-        chatWidget.style.display = "none";
-    });
-
-    if(chatBtn){
-        chatBtn.addEventListener("click", () => {
-            chatWidget.style.display = "flex";
-            chatWidget.classList.remove("minimized");
-        });
-    }
-});
-// === Chat Flutuante ===
-const chatWidget = document.getElementById('chatWidget');
-const openChat = document.getElementById('openChat');
-const closeChat = document.getElementById('closeChat');
-const chatBody = document.getElementById('chatBody');
-const sendChat = document.getElementById('sendChat');
-const chatInput = document.getElementById('chatInput');
-
-openChat.addEventListener('click', () => chatWidget.style.display = 'flex');
-closeChat.addEventListener('click', () => chatWidget.style.display = 'none');
-
-sendChat.addEventListener('click', () => {
-    const msg = chatInput.value.trim();
-    if (msg === '') return;
-
-    const userMsg = document.createElement('div');
-    userMsg.classList.add('message', 'user');
-    userMsg.textContent = msg;
-    chatBody.appendChild(userMsg);
-
+    addMessage(userText, 'user');
     chatInput.value = '';
 
     setTimeout(() => {
-        const botMsg = document.createElement('div');
-        botMsg.classList.add('message', 'bot');
-        botMsg.textContent = respostaBot(msg);
-        chatBody.appendChild(botMsg);
-        chatBody.scrollTop = chatBody.scrollHeight;
+        const response = botResponse(userText);
+        addMessage(response, 'bot');
     }, 600);
+}
+
+sendBtn.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
 });
 
-function respostaBot(msg) {
-    msg = msg.toLowerCase();
-    if (msg.includes('básico')) return "O curso básico é perfeito pra começar a entender investimentos.";
-    if (msg.includes('intermediário')) return "O intermediário aprofunda seus conhecimentos e análise de risco.";
-    if (msg.includes('avançado')) return "O avançado é ideal pra quem quer maximizar resultados!";
-    return "Posso te ajudar a escolher o curso ideal! 😊";
-}
+// Abre e fecha o chat com classe "active"
+openChatBtn.addEventListener('click', () => {
+  chatWidget.classList.add('active');
+});
+
+closeBtn.addEventListener('click', () => {
+  chatWidget.classList.remove('active');
+});
 
 // === Filtro de busca ===
 const searchInput = document.getElementById('searchInput');
