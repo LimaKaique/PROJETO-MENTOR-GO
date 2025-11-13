@@ -18,7 +18,7 @@ function botResponse(input) {
     const text = input.toLowerCase();if (text.includes("oi") || text.includes("olá") || text.includes("e aí") || text.includes("bom dia") || text.includes("boa tarde") || text.includes("boa noite"))
     return "Oi! 😊 Seja bem-vindo(a)! Como posso te ajudar hoje?";
 
-if (text.includes("curso") || text.includes("cursos"))
+if (text.includes("quero curso") || text.includes("tenho interesse em cursos"))
     return "Temos vários cursos gratuitos sobre finanças, investimentos e desenvolvimento pessoal! Quer que eu te recomende um? 🎓";
 
 if (text.includes("preço") || text.includes("valor") || text.includes("custa") || text.includes("quanto"))
@@ -30,7 +30,7 @@ if (text.includes("pagamento") || text.includes("pagar") || text.includes("cart�
 if (text.includes("horário") || text.includes("hora") || text.includes("quando") || text.includes("duração"))
     return "Os cursos são online e com horários flexíveis ⏰ Você pode assistir quando quiser!";
 
-if (text.includes("sim") || text.includes("claro") || text.includes("com certeza") || text.includes("quero"))
+if (text.includes("claro") || text.includes("com certeza"))
     return "Perfeito! 😄 Me conta qual tema você mais se interessa: investimentos, finanças pessoais ou empreendedorismo?";
 
 if (text.includes("não") || text.includes("nao"))
@@ -40,7 +40,7 @@ if (text.includes("mentoria") || text.includes("mentorias"))
     return "As mentorias são personalizadas e focadas nos seus objetivos 👥 Quer saber mais sobre como participar?";
 
 if (text.includes("investimento") || text.includes("investir") || text.includes("dinheiro"))
-    return "Temos cursos gratuitos sobre investimentos, renda fixa, bolsa de valores e até criptomoedas! 💹 Quer que eu te mostre as opções?";
+    return "Temos cursos gratuitos sobre investimentos, renda fixa, bolsa de valores e até criptomoedas!. Tudo isso na nossa aba de Cursos! 📈";
 
 if (text.includes("ajuda") || text.includes("duvida") || text.includes("dúvida") || text.includes("explica"))
     return "Claro! 😄 Me diga sobre o que você quer ajuda — posso te explicar passo a passo.";
@@ -73,13 +73,18 @@ if (text.includes("blog"))
     return "Nosso blog traz dicas e análises sobre o mercado financeiro pra te manter sempre atualizado! 📰";
 
 if (text.includes("obrigado") || text.includes("valeu") || text.includes("agradeço"))
-    return "De nada! 😄 Fico feliz em ajudar. Quer que eu te recomende um curso pra começar agora?";
+    return "De nada! 😄 Fico feliz em ajudar. Vou te recomendar alguns cursos, antes de tudo diga o nivel que você está entre Básico, Avançado ou Intermediário. ";
 
 if (text.includes("iniciante") || text.includes("começando") || text.includes("novo nisso"))
     return "Sem problema! 🚀 Temos cursos ideais pra quem está começando do zero e quer entender o básico de finanças e investimentos.";
 
 if (text.includes("avançado") || text.includes("experiente") || text.includes("já sei"))
     return "Legal! 👏 Temos cursos avançados que abordam investimentos, bolsa de valores e estratégias de crescimento financeiro.";
+
+if (text.includes("básico") || text.includes("iniciante") || text.includes("começar"))
+    return "Show! 👌 Temos cursos básicos como Introdução às Finanças, Primeiros Passos na Renda Fixa e Fundamentos da Bolsa. Perfeito pra quem tá começando do zero.";
+if (text.includes("intermediário") || text.includes("já sei o básico") || text.includes("nível médio"))
+    return "Beleza! 👍 Temos cursos intermediários como Investindo em Fundos Imobiliários, Análise Técnica e Planejamento Financeiro Pessoal.";
 
 if (text.includes("erro") || text.includes("bug") || text.includes("não funciona") || text.includes("problema"))
     return "Poxa 😕 Me conta o que aconteceu pra eu tentar te ajudar!";
